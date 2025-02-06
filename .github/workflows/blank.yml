@@ -3,7 +3,7 @@ name: Deploy to Shared Hosting
 on:
   push:
     branches:
-      - codecafe  # Trigger the workflow when code is pushed to the main branch
+      - codecafe  # Trigger the workflow when code is pushed to the codecafe branch
 
 jobs:
   deploy:
@@ -14,10 +14,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy to Shared Hosting via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v5
+        uses: samkirkland/ftp-deploy-action@v4  # Corrected action name (all lowercase)
         with:
-          ftp-server: ${{ secrets.FTP_SERVER }}  # Corrected secret reference
-          ftp-username: ${{ secrets.FTP_USERNAME }}  # Corrected secret reference
-          ftp-password: ${{ secrets.FTP_PASSWORD }}  # Corrected secret reference
+          ftp-server: ${{ secrets.FTP_SERVER }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./  # Deploy all files from the root directory
           server-dir: /public_html/  # Target directory on the server
