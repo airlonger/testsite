@@ -1,4 +1,4 @@
-- name: Deploy to Shared Hosting via FTP
+ name: Deploy to Shared Hosting via FTP
   uses: SamKirkland/FTP-Deploy-Action@v4.3.4
   with:
     server: ${{ secrets.FTP_SERVER }}
