@@ -14,10 +14,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy to Shared Hosting via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4  # Use the exact version
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4  # Use the correct version
         with:
-          ftp-server: ${{ secrets.FTP_SERVER }}
-          ftp-username: ${{ secrets.FTP_USERNAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          server: ${{ secrets.FTP_SERVER }}  # Corrected input name
+          username: ${{ secrets.FTP_USERNAME }}  # Corrected input name
+          password: ${{ secrets.FTP_PASSWORD }}  # Corrected input name
           local-dir: ./  # Deploy all files from the root directory
           server-dir: /public_html/  # Target directory on the server
