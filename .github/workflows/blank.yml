@@ -1,0 +1,25 @@
+name: Deploy to Shared Hosting
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow when you push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Deploy code to shared hosting using FTP
+      - name: Deploy to Shared Hosting via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v5
+        with:
+          ftp-server: ${{ secrets.FTP_SERVER }}  # The FTP server address
+          ftp-username: ${{ secrets.FTP_USERNAME }}  # Your FTP username
+          ftp-password: ${{ secrets.FTP_PASSWORD }}  # Your FTP password
+          local-dir: ./  # Directory to deploy (typically root or build folder)
+          server-dir: /public_html/  # The directory on your hosting server where files will be uploaded
