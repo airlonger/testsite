@@ -1,23 +1,9 @@
-name: Deploy to Shared Hosting
-
-on:
-  push:
-    branches:
-      - codecafe  # Trigger the workflow when pushing to the codecafe branch
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Deploy to Shared Hosting via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4  # Use the correct version
-        with:
-          server: ${{ secrets.FTP_SERVER }}  # Corrected input name
-          username: ${{ secrets.FTP_USERNAME }}  # Corrected input name
-          password: ${{ secrets.FTP_PASSWORD }}  # Corrected input name
-          local-dir: ./  # Deploy all files from the root directory
-          server-dir: /public_html/  # Target directory on the server
+- name: Deploy to Shared Hosting via FTP
+  uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+  with:
+    server: ${{ secrets.FTP_SERVER }}
+    username: ${{ secrets.FTP_USERNAME }}
+    password: ${{ secrets.FTP_PASSWORD }}
+    local-dir: ./
+    server-dir: /public_html/
+    security: loose  # Enables passive mode
