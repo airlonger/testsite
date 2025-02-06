@@ -3,7 +3,7 @@ name: Deploy to Shared Hosting
 on:
   push:
     branches:
-      - codecafe  # Change this to your actual branch name
+      - codecafe  # Change to your actual branch
 
 jobs:
   deploy:
@@ -17,8 +17,8 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: 176.126.87.129
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          username: ${{ secrets.FTP_USERNAME }}  # Make sure the secret exists
+          password: ${{ secrets.FTP_PASSWORD }}  # Make sure the secret exists
           local-dir: ./
           server-dir: /public_html/
           security: loose  # Enables passive mode
