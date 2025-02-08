@@ -19,6 +19,7 @@ jobs:
           server: 176.126.87.129
           username: ${{ secrets.FTP_USERNAME }}  # Make sure the secret exists
           password: ${{ secrets.FTP_PASSWORD }}  # Make sure the secret exists
+          port: 21
           local-dir: ./
           server-dir: /public_html/
           security: loose  # Enables passive mode
