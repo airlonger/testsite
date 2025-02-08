@@ -16,7 +16,7 @@ jobs:
       - name: Deploy to Shared Hosting via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: 176.126.87.129
+          server: ftp.sincerity.live
           username: ${{ secrets.FTP_USERNAME }}  # Make sure the secret exists
           password: ${{ secrets.FTP_PASSWORD }}  # Make sure the secret exists
           port: 21
