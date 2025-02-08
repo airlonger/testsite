@@ -3,7 +3,7 @@ name: Deploy to Shared Hosting
 on:
   push:
     branches:
-      - codecafe  # Change to your actual branch
+      - main  # Change to your actual branch
 
 jobs:
   deploy:
